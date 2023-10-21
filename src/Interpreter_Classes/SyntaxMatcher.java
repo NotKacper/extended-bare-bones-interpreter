@@ -4,25 +4,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SyntaxMatcher {
-	Pattern commandExpression = Pattern.compile("(incr|decr|clear) [A-Za-z](\\d|[A-Za-z])*;");
-	Pattern loopExpression = Pattern.compile("while [A-Za-z](\\d|[A-Za-z])* not 0 do;");
-	Pattern loopEndExpression = Pattern.compile("end;");
+	private final Pattern commandExpression = Pattern.compile("(incr|decr|clear) [A-Za-z](\\d|[A-Za-z])*;");
+	private final Pattern loopExpression = Pattern.compile("while [A-Za-z](\\d|[A-Za-z])* not 0 do;");
+	private final Pattern loopEndExpression = Pattern.compile("end;");
 
-	// New addition to barebones!, comments!
-	Pattern commentPattern = Pattern.compile("//.*");
-
-	Matcher commandMatcher;
-	Matcher loopMatcher;
-	Matcher loopEndMatcher;
-
-	Matcher commentMatcher;
+	// New addition to bare-bones!, comments!
+	private final Pattern commentPattern = Pattern.compile("//.*");
 
 	public String matchToSyntax(String line) {
-		commandMatcher = commandExpression.matcher(line);
+		Matcher commentMatcher = commentPattern.matcher(line);
+		if (commentMatcher.find()) return "comment";
+		Matcher commandMatcher = commandExpression.matcher(line);
 		if (commandMatcher.find()) return "command";
-		loopMatcher = loopExpression.matcher(line);
+		Matcher loopMatcher = loopExpression.matcher(line);
 		if (loopMatcher.find()) return "loop";
-		loopEndMatcher = loopEndExpression.matcher(line);
+		Matcher loopEndMatcher = loopEndExpression.matcher(line);
 		if (loopEndMatcher.find()) return "end";
 		return "error";
 	}

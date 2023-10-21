@@ -75,6 +75,7 @@ public class Interpreter {
 	}
 
 	private void executeLine(String lineType) throws InvalidSyntaxException, DecrementationException {
+		if (lineType.equals("comment")) return;
 		switch (lineType) {
 			case "command" -> executeCommand();
 			case "loop" -> executeWhileLoop();

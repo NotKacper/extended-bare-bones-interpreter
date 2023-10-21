@@ -11,7 +11,11 @@ public class Variable {
 			case "incr" -> incr();
 			case "decr" -> decr();
 			case "clear" -> clear();
+			case "in" -> input();
 		}
+	}
+
+	private void input() {
 	}
 
 	public int getValue() {
