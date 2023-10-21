@@ -1,7 +1,6 @@
-package src.Interpreter_Classes;
+package Interpreter_Classes;
 
-import Exceptions.DecrementationException;
-import Exceptions.InvalidSyntaxException;
+import Exceptions.*;
 
 import java.io.IOException;
 import java.util.ArrayList;

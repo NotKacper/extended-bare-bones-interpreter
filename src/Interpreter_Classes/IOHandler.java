@@ -1,4 +1,4 @@
-package src.Interpreter_Classes;
+package Interpreter_Classes;
 
 import java.io.*;
 import java.util.ArrayList;

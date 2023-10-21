@@ -1,6 +1,4 @@
-package src;
-
-import src.Interpreter_Classes.Interpreter;
+import Interpreter_Classes.Interpreter;
 
 import java.io.IOException;
 

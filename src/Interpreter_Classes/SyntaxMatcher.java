@@ -1,4 +1,4 @@
-package src.Interpreter_Classes;
+package Interpreter_Classes;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,9 +7,15 @@ public class SyntaxMatcher {
 	Pattern commandExpression = Pattern.compile("(incr|decr|clear) [A-Za-z](\\d|[A-Za-z])*;");
 	Pattern loopExpression = Pattern.compile("while [A-Za-z](\\d|[A-Za-z])* not 0 do;");
 	Pattern loopEndExpression = Pattern.compile("end;");
+
+	// New addition to barebones!, comments!
+	Pattern commentPattern = Pattern.compile("//.*");
+
 	Matcher commandMatcher;
 	Matcher loopMatcher;
 	Matcher loopEndMatcher;
+
+	Matcher commentMatcher;
 
 	public String matchToSyntax(String line) {
 		commandMatcher = commandExpression.matcher(line);

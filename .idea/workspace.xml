@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="ANALYZE_INJECTED_CODE" value="false" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d983a183-bc1d-4ca7-96ec-3069fb341066" name="Changes" comment="">
+    <list default="true" id="2d857df2-0f28-4a18-9658-6a57b994748b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nestedloops" beforeDir="false" afterPath="$PROJECT_DIR$/nestedloops.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions/DecrementationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/DecrementationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions/InvalidSyntaxException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/InvalidSyntaxException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/IOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/IOHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/SyntaxMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/SyntaxMatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,16 +32,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2WXEcwGSstqaCRMCdCwjecneQMj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2X2TQ4mfrApDP9LPT311YiRdXPA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,106 +45,51 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/super/OneDrive - University of Southampton/Bsc Mathematics with Computer Science/Programming I/Space Cadets/SpaceCadetsChallenge2&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kacper/OneDrive - University of Southampton/Bsc Mathematics with Computer Science/Programming I/Space Cadets/SpaceCadetsChallenge3&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\super\OneDrive - University of Southampton\Bsc Mathematics with Computer Science\Programming I\Space Cadets\Challenge2" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
+      <recent name="C:\Users\Kacper\OneDrive - University of Southampton\Bsc Mathematics with Computer Science\Programming I\Space Cadets\SpaceCadetsChallenge3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="BareBonesInterpreter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BareBonesInterpreter" />
-      <module name="SpaceCadetsChallenge2" />
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="SpaceCadetsChallenge3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SpaceCadetsChallenge2" />
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="SpaceCadetsChallenge3" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.BareBonesInterpreter" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d983a183-bc1d-4ca7-96ec-3069fb341066" name="Changes" comment="" />
-      <created>1696870607923</created>
+      <changelist id="2d857df2-0f28-4a18-9658-6a57b994748b" name="Changes" comment="" />
+      <created>1697826156565</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1696870607923</updated>
-      <workItem from="1696870608893" duration="11198000" />
-      <workItem from="1697450209601" duration="654000" />
-      <workItem from="1697450984459" duration="1935000" />
-      <workItem from="1697458217433" duration="2001000" />
-      <workItem from="1697470723205" duration="8785000" />
-      <workItem from="1697524952094" duration="191000" />
-      <workItem from="1697554392838" duration="3174000" />
-      <workItem from="1697569659355" duration="2733000" />
-      <workItem from="1697665828768" duration="1353000" />
-      <workItem from="1697748996719" duration="6356000" />
-      <workItem from="1697755549441" duration="25000" />
-      <workItem from="1697804703336" duration="4772000" />
-      <workItem from="1697813520286" duration="3355000" />
-      <workItem from="1697822463128" duration="1011000" />
+      <updated>1697826156565</updated>
+      <workItem from="1697826157617" duration="942000" />
+      <workItem from="1697873910033" duration="384000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interpreter_Classes/Interpreter.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="java-exception" />
-        <breakpoint enabled="true" type="javascript-exception" />
-      </default-breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
