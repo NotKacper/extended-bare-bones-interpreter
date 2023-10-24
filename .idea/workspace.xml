@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d857df2-0f28-4a18-9658-6a57b994748b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/IOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/IOHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/SyntaxMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/SyntaxMatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interpreter_Classes/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interpreter_Classes/Variable.java" afterDir="false" />
@@ -44,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Kacper/OneDrive - University of Southampton/Bsc Mathematics with Computer Science/Programming I/Space Cadets/SpaceCadetsChallenge3",
+    "last_opened_file_path": "C:/Users/kl4g23/OneDrive - University of Southampton/Bsc Mathematics with Computer Science/Programming I/Space Cadets/SpaceCadetsChallenge3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,11 +84,23 @@
       <option name="presentableId" value="Default" />
       <updated>1697826156565</updated>
       <workItem from="1697826157617" duration="942000" />
-      <workItem from="1697873910033" duration="971000" />
+      <workItem from="1697873910033" duration="1029000" />
+      <workItem from="1698156526080" duration="1667000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interpreter_Classes/Interpreter.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

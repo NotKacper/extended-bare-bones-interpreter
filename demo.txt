@@ -3,7 +3,8 @@ incr X;
 clear Y;
 incr Y;
 decr X;
-// cummy wummies :(
+// comment_____
+in X;
 decr Y;
 // XDDD
 // XDDD

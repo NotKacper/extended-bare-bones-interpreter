@@ -12,10 +12,16 @@ public class Variable {
 			case "decr" -> decr();
 			case "clear" -> clear();
 			case "in" -> input();
+			case "out" -> output();
 		}
 	}
 
+	private void output() {
+		 IOHandler.outputMessage(String.valueOf(this.value));
+	}
+
 	private void input() {
+		value = IOHandler.getIntInput();
 	}
 
 	public int getValue() {

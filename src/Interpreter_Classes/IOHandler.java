@@ -16,6 +16,12 @@ public class IOHandler {
 		return fileName;
 	}
 
+	public static int getIntInput() {
+		Scanner inputScanner = new Scanner(System.in);
+		return inputScanner.nextInt();
+	}
+
+
 	public static void outputMessage(String input) {
 		System.out.println(input);
 	}

@@ -61,21 +61,24 @@ public class Interpreter {
 	private void interpretCode() throws DecrementationException, InvalidSyntaxException, IOException {
 		// linearly search through the code ArrayList with index pointer in order to point to earlier code to execute loops.
 		String lineType;
+		boolean comment;
 		while (currentLinePointer < sourceCode.size()) {
 			// checks if a line of code is a command, while loop, or end of a while loop.
 			lineType = syntaxMatcher.matchToSyntax(sourceCode.get(currentLinePointer));
-			executeLine(lineType);
-			IOHandler.displayStatesOfVariables(currentLinePointer, variables, logicalLineToFileLine);
-			if (debugging) {
-				IOHandler.outputMessage(sourceCode.get(currentLinePointer));
-				IOHandler.getUserInput("enter any input to continue");
+			comment = executeLine(lineType);
+			if (!comment) {
+				IOHandler.displayStatesOfVariables(currentLinePointer, variables, logicalLineToFileLine);
+				if (debugging) {
+					IOHandler.outputMessage(sourceCode.get(currentLinePointer));
+					IOHandler.getUserInput("enter any input to continue");
+				}
 			}
 			currentLinePointer++;
 		}
 	}
 
-	private void executeLine(String lineType) throws InvalidSyntaxException, DecrementationException {
-		if (lineType.equals("comment")) return;
+	private boolean executeLine(String lineType) throws InvalidSyntaxException, DecrementationException {
+		if (lineType.equals("comment")) return true;
 		switch (lineType) {
 			case "command" -> executeCommand();
 			case "loop" -> executeWhileLoop();
@@ -83,6 +86,7 @@ public class Interpreter {
 			default ->
 					throw new InvalidSyntaxException("Invalid syntax at line " + logicalLineToFileLine.get(currentLinePointer));
 		}
+		return false;
 	}
 
 	// if the currentLinePointerPointer encounters an end it will either remove a loop from the stack or continue loopings
@@ -127,8 +131,9 @@ public class Interpreter {
 
 	private void executeCommand() throws DecrementationException {
 		String command = sourceCode.get(currentLinePointer);
-		String operator = command.substring(0, 5).trim(); // returns 1 of "incr", "decr", "clear"
-		String variable = command.substring(5, command.length() - 1).trim();
+		String[] tokens = command.split("\\s+");
+		String operator = tokens[0]; // returns 1 of "incr", "decr", "clear", "in" ...
+		String variable = tokens[1];
 		if (!variables.containsKey(variable)) { // if the variable doesn't exist in the map then add it.
 			variables.put(variable, new Variable());
 		}
