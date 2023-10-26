@@ -4,9 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SyntaxMatcher {
-	private final Pattern commandExpression = Pattern.compile("(incr|decr|clear|in) [A-Za-z](\\d|[A-Za-z])*;");
-	private final Pattern loopExpression = Pattern.compile("while [A-Za-z](\\d|[A-Za-z])* not 0 do;");
-	private final Pattern loopEndExpression = Pattern.compile("end;");
+	// added arithmetic methods
+	private final Pattern commandExpression = Pattern.compile("(incr|decr|clear|add|mulitply|divide)\\s+[A-Za-z](\\d|[A-Za-z])*\\s+;");
+	private final Pattern loopExpression = Pattern.compile("while\\s+[A-Za-z](\\d|[A-Za-z])*\\s+not\\s+0\\s+do\\s+;");
+	private final Pattern loopEndExpression = Pattern.compile("end\\s+;");
 
 	// New addition to bare-bones!, comments!
 	private final Pattern commentPattern = Pattern.compile("//.*");
