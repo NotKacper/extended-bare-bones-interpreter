@@ -1,6 +1,7 @@
 package Interpreter_Classes;
 
-import Exceptions.*;
+import Exceptions.DecrementationException;
+import Exceptions.InvalidSyntaxException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -131,12 +132,27 @@ public class Interpreter {
 
 	private void executeCommand() throws DecrementationException {
 		String command = sourceCode.get(currentLinePointer);
-		String[] tokens = command.split("\\s+");
+		String[] tokens = command.split("(\\s+)|;");
 		String operator = tokens[0]; // returns 1 of "incr", "decr", "clear", "in" ...
 		String variable = tokens[1];
+		boolean doubleInput = tokens.length > 2;
+		int operand = 0;
+		if (doubleInput) {
+			if (tokens[2].matches("\\d+")) {
+				operand = Integer.parseInt(tokens[2]);
+			}
+			else {
+				operand = variables.get(tokens[2]).getValue();
+			}
+		}
 		if (!variables.containsKey(variable)) { // if the variable doesn't exist in the map then add it.
 			variables.put(variable, new Variable());
 		}
-		variables.get(variable).update(operator);
+		if (!doubleInput) {
+			variables.get(variable).update(operator);
+		}
+		else {
+			variables.get(variable).update(operator, operand);
+		}
 	}
 }

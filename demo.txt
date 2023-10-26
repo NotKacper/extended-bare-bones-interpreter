@@ -1,11 +1,4 @@
-clear X;
-incr X;
-clear Y;
-incr Y;
-decr X;
-// comment_____
-in X;
-decr Y;
-// XDDD
-// XDDD
-// XDDD
+add X 10;
+add Y 2;
+divide X Y;
+out X;

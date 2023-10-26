@@ -11,17 +11,26 @@ public class Variable {
 			case "incr" -> incr();
 			case "decr" -> decr();
 			case "clear" -> clear();
+			case "in" -> input();
+			case "out" -> output();
 		}
 	}
 
-	public void update(String command, Variable argument) throws DecrementationException {
-		int operand = argument.getValue();
+	public void update(String command, int argument) throws DecrementationException {
 		switch (command) {
-			case "add" -> add(operand);
-			case "sub" -> add(-operand);
-			case "multiply" -> multiply(operand);
-			case "divide" -> divide(operand); // uses floor division as only integers are allowed.
+			case "add" -> add(argument);
+			case "sub" -> add(-argument);
+			case "multiply" -> multiply(argument);
+			case "divide" -> divide(argument); // uses floor division as only integers are allowed.
 		}
+	}
+
+	private void input() {
+		value = IOHandler.getIntInput();
+	}
+
+	private void output() {
+		System.out.println(value);
 	}
 
 	private void add(int argument) {
