@@ -10,24 +10,33 @@ public class SyntaxMatcher {
 	private final Pattern commandExpression2 = Pattern.compile("(add|sub|multiply|divide)\\s+[A-Za-z](\\d|[A-Za-z])*\\s+(([A-Za-z](\\d|[A-Za-z])*)|(\\d+))\\s*;");
 
 	// add boolean expressions to this, using another object to parse nested brackets.
-	private final Pattern loopIndefiniteExpression = Pattern.compile("while\\s+[A-Za-z](\\d|[A-Za-z])*\\s+not\\s+0\\s+do\\s*;");
+	// need this to work before implementing for loops as they are otherwise moot.
+	private final Pattern loopIndefiniteBeginningExpression = Pattern.compile("while\\s+\\(");
+	private final Pattern loopIndefiniteEndingExpression = Pattern.compile("\\)\\s*;");
 
-	private final Pattern loopDefiniteExpression = Pattern.compile();
-	private final Pattern loopEndExpression = Pattern.compile("end\\s*;");
+	private final Pattern loopDefiniteExpression = Pattern.compile("for\\s+(([A-Za-z](\\d|[A-Za-z])*)|(\\d+))*\\s*;");
+	private final Pattern loopWhileEndExpression = Pattern.compile("while\\s+end\\s*;");
+
+	private final Pattern loopForEndExpression = Pattern.compile("for\\s+end\\s*;");
 
 	// New addition to bare-bones!, comments!
 	private final Pattern commentPattern = Pattern.compile("//.*");
 
 	public String matchToSyntax(String line) {
-		Matcher commentMatcher = commentPattern.matcher(line);
-		if (commentMatcher.find()) return "comment";
-		Matcher commandMatcher = commandExpression.matcher(line);
-		Matcher commandMatcher2 = commandExpression2.matcher(line);
-		if (commandMatcher.find() || commandMatcher2.find()) return "command";
-		Matcher loopMatcher = loopIndefiniteExpression.matcher(line);
-		if (loopMatcher.find()) return "loop";
-		Matcher loopEndMatcher = loopEndExpression.matcher(line);
-		if (loopEndMatcher.find()) return "end";
+		Matcher matcher1 = commentPattern.matcher(line);
+		if (matcher1.find()) return "comment";
+		matcher1 = commandExpression.matcher(line);
+		Matcher matcher2 = commandExpression2.matcher(line);
+		if (matcher1.find() || matcher2.find()) return "command";
+		matcher1 = loopIndefiniteBeginningExpression.matcher(line);
+		matcher2 = loopIndefiniteEndingExpression.matcher(line);
+		if (matcher1.find() && matcher2.find()) return "while loop";
+		matcher1 = loopDefiniteExpression.matcher(line);
+		if (matcher1.find()) return "for loop";
+		matcher1 = loopWhileEndExpression.matcher(line);
+		if (matcher1.find()) return "while end";
+		matcher1 = loopForEndExpression.matcher(line);
+		if (matcher1.find()) return "for end";
 		return "error";
 	}
 

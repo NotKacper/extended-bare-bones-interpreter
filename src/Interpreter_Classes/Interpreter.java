@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
+import org.mvel2.MVEL;
+
 public class Interpreter {
 
 	// stores the sourceCode field ArrayList indexes mapped to the actual line count of the source code file.
@@ -17,6 +19,8 @@ public class Interpreter {
 	private final HashMap<String, Variable> variables = new HashMap<>();
 
 	// stack used to keep track of nested while loops
+
+	// need to change loopStack structure to allow the new boolean expression approach to while loops
 	private final Stack<ArrayList<String>> loopStack = new Stack<>();
 
 	// object which matches a line to its correct instruction using regex.
@@ -82,36 +86,76 @@ public class Interpreter {
 		if (lineType.equals("comment")) return true;
 		switch (lineType) {
 			case "command" -> executeCommand();
-			case "loop" -> executeWhileLoop();
-			case "end" -> endWhileLoop();
+			case "while loop" -> executeWhileLoop();
+			case "for loop" -> executeForLoop();
+			case "while end" -> endWhileLoop();
+			case "for end" -> endForLoop();
 			default ->
 					throw new InvalidSyntaxException("Invalid syntax at line " + logicalLineToFileLine.get(currentLinePointer));
 		}
 		return false;
 	}
 
-	// if the currentLinePointerPointer encounters an end it will either remove a loop from the stack or continue loopings
-	private void endWhileLoop() {
+	private void executeForLoop() {
+	}
+
+	private void endForLoop() {
+	}
+
+	// !!!spaghetti code warning!!!
+	private void executeWhileLoop() throws InvalidSyntaxException {
+		String line = sourceCode.get(currentLinePointer);
+		// use StringBuilder to reverse line to find end of brackets for boolean expressions.
+		StringBuilder sb = new StringBuilder();
+		String reversedLine = String.valueOf(sb.append(line).reverse());
+		int lowerBound = line.indexOf('(');
+		int upperBound = line.length() - reversedLine.indexOf(')');
+		String booleanExpression = line.substring(lowerBound, upperBound);
+		Boolean run = evaluateBooleanExpression(booleanExpression);
+		if (run) { // adds loop to the loopStack
+			loopStack.push(new ArrayList<>());
+			loopStack.peek().add(booleanExpression);
+			loopStack.peek().add(String.valueOf(currentLinePointer));
+		} else {
+			skipLoop(); // if the initial conditions for the loop are not met then skip to the end of the loop
+		}
+	}
+
+
+	// road block hit with this lmao ---- scriptEngine is no longer used since Java 11 so I cannot
+	// use it to evaluate stuff.
+	private Boolean evaluateBooleanExpression(String booleanExpression) throws InvalidSyntaxException {
+		try {
+			String[] tokens = booleanExpression.split("(\\s+)|(\\(|\\))");
+			String[] temp = new String[tokens.length];
+			for (int i = 0; i < tokens.length; i++) {
+				if (variables.containsKey(tokens[i])) {
+					temp[i] = variables.get(tokens[i]).getValue() + " ";
+				} else {
+					temp[i] = tokens[i] + " ";
+				}
+			}
+			StringBuilder evaluatableExpression = new StringBuilder();
+			for (String token : temp) {
+				evaluatableExpression.append(token);
+			}
+		} catch (Exception error) {
+			throw new InvalidSyntaxException("Invalid boolean syntax at line " + logicalLineToFileLine.get(currentLinePointer));
+		}
+	}
+
+
+	// if the currentLinePointerPointer encounters an end it will either remove a loop from the stack or continue looping
+	private void endWhileLoop() throws InvalidSyntaxException {
 		if (!loopStack.empty()) {
-			String variable = loopStack.peek().get(0);
+			String booleanExpression = loopStack.peek().get(0);
+			Boolean run = evaluateBooleanExpression(booleanExpression);
 			int index = Integer.parseInt(loopStack.peek().get(1));
-			if (variables.get(variable).getValue() == 0) {
+			if (!run) {
 				loopStack.pop();
 			} else {
 				currentLinePointer = index;
 			}
-		}
-	}
-
-	private void executeWhileLoop() {
-		String line = sourceCode.get(currentLinePointer);
-		String variable = line.substring(6, line.length() - 10);
-		if (variables.get(variable).getValue() != 0) { // adds loop to the loopStack
-			loopStack.push(new ArrayList<>());
-			loopStack.peek().add(variable);
-			loopStack.peek().add(String.valueOf(currentLinePointer));
-		} else {
-			skipLoop(); // if the initial conditions for the loop are not met then skip to the end of the loop
 		}
 	}
 
@@ -140,8 +184,7 @@ public class Interpreter {
 		if (doubleInput) {
 			if (tokens[2].matches("\\d+")) {
 				operand = Integer.parseInt(tokens[2]);
-			}
-			else {
+			} else {
 				operand = variables.get(tokens[2]).getValue();
 			}
 		}
@@ -150,8 +193,7 @@ public class Interpreter {
 		}
 		if (!doubleInput) {
 			variables.get(variable).update(operator);
-		}
-		else {
+		} else {
 			variables.get(variable).update(operator, operand);
 		}
 	}

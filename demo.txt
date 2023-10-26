@@ -1,4 +1,5 @@
 add X 10;
-add Y 2;
-divide X Y;
-out X;
+while (X < 11);
+    out X;
+    decr X;
+while end;
