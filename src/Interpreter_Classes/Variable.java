@@ -22,7 +22,12 @@ public class Variable {
 			case "sub" -> add(-argument);
 			case "multiply" -> multiply(argument);
 			case "divide" -> divide(argument); // uses floor division as only integers are allowed.
+			case "store" -> store(argument);
 		}
+	}
+
+	private void store(int argument) {
+		value = argument;
 	}
 
 	private void input() {

@@ -1,0 +1,13 @@
+in n;
+store x 1;
+store y 2;
+out x;
+out x;
+clear z;
+while n not 0 do;
+    out y;
+    store z y;
+    add y x;
+    store x z;
+    decr n;
+end;

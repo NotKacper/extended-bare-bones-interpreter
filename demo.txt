@@ -1,4 +1,0 @@
-add X 10;
-add Y 2;
-divide X Y;
-out X;

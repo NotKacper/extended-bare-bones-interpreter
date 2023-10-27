@@ -28,13 +28,8 @@ public class Interpreter {
 
 	private ArrayList<String> sourceCode;
 
-	public void start() throws IOException {
-		boolean running = true;
-		while (running) {
-			this.run();
-			// allows user to interpret multiple files in one run of the program.
-			running = !IOHandler.getUserInput("Do you want to interpret another file? y/n").equalsIgnoreCase("n");
-		}
+	public void start(){
+		this.run();
 	}
 
 	public void clearRuntime() {
@@ -68,7 +63,7 @@ public class Interpreter {
 			lineType = syntaxMatcher.matchToSyntax(sourceCode.get(currentLinePointer));
 			comment = executeLine(lineType);
 			if (!comment) {
-				IOHandler.displayStatesOfVariables(currentLinePointer, variables, logicalLineToFileLine);
+				// IOHandler.displayStatesOfVariables(currentLinePointer, variables, logicalLineToFileLine);
 				if (debugging) {
 					IOHandler.outputMessage(sourceCode.get(currentLinePointer));
 					IOHandler.getUserInput("enter any input to continue");
@@ -140,8 +135,7 @@ public class Interpreter {
 		if (doubleInput) {
 			if (tokens[2].matches("\\d+")) {
 				operand = Integer.parseInt(tokens[2]);
-			}
-			else {
+			} else {
 				operand = variables.get(tokens[2]).getValue();
 			}
 		}
@@ -150,8 +144,7 @@ public class Interpreter {
 		}
 		if (!doubleInput) {
 			variables.get(variable).update(operator);
-		}
-		else {
+		} else {
 			variables.get(variable).update(operator, operand);
 		}
 	}

@@ -7,12 +7,11 @@ public class SyntaxMatcher {
 	// added arithmetic methods
 	private final Pattern commandExpression = Pattern.compile("(incr|decr|clear|out|in)\\s+[A-Za-z](\\d|[A-Za-z])*\\s*;");
 
-	private final Pattern commandExpression2 = Pattern.compile("(add|sub|multiply|divide)\\s+[A-Za-z](\\d|[A-Za-z])*\\s+(([A-Za-z](\\d|[A-Za-z])*)|(\\d+))\\s*;");
+	private final Pattern commandExpression2 = Pattern.compile("(add|sub|multiply|divide|store)\\s+[A-Za-z](\\d|[A-Za-z])*\\s+(([A-Za-z](\\d|[A-Za-z])*)|(\\d+))\\s*;");
 
 	// add boolean expressions to this, using another object to parse nested brackets.
 	private final Pattern loopIndefiniteExpression = Pattern.compile("while\\s+[A-Za-z](\\d|[A-Za-z])*\\s+not\\s+0\\s+do\\s*;");
 
-	private final Pattern loopDefiniteExpression = Pattern.compile();
 	private final Pattern loopEndExpression = Pattern.compile("end\\s*;");
 
 	// New addition to bare-bones!, comments!
